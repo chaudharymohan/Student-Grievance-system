@@ -1,0 +1,64 @@
+
+<div style="background-image: url('/public/image/back.jpg');background-repeat: no-repeat">
+    <div class="w3-card-4" style="width:85%; margin:20px 100px 20px">
+        <div class="w3-container w3-teal">
+            <h2 class="w3-center">Edit Your profile</h2>
+        </div>
+        <form class="w3-container">
+            <fieldset style="background-color: #b3ffff;margin:2%">
+                <legend class="w3-text-deep-orange w3-xlarge"><button class="w3-block w3-orange">Your Profile is</button></legend>
+                <label class="w3-text-brown" name="admin_id" ng-model="admin_id"><b>ID:</b></label>20150711
+                <br>
+                <label class="w3-text-brown" name="admin_name" ng-model="admin_name"><b>Name:</b></label>Mohan Chaudhary
+                <br>
+                <label class="w3-text-brown" name="admin_mob_no" ng-model="admin_mob_no"><b>Mobile no:</b></label>7845124512
+                <br>
+                <label class="w3-text-brown" name="admin_email" ng-model="admin_email"><b>Email:</b></label>cmohan34@gmail.com
+                <br>
+                <button onclick="document.getElementById('id01').style.display='block'"
+                        class="w3-button w3-wide w3-large w3-brown w3-hover-teal">Edit</button>
+                <br>
+            </fieldset>
+            <br><br>
+
+
+        </form>
+    </div>
+    <div id="id01" class="w3-modal" >
+        <div class="w3-modal-content w3-animate-zoom w3-card-4">
+            <header class="w3-container w3-padding-16 w3-teal">
+        <span onclick="document.getElementById('id01').style.display='none'"
+              class="w3-button w3-display-topright">&times;</span>
+                <h2 class="w3-center">Edit Your Profile </h2>
+            </header>
+            <div class="w3-container">
+                <p>
+                    <label class="w3-text-brown"><b>ID:</b></label>
+                    <input class="w3-input w3-border w3-sand" name="first" type="number">
+                </p>
+                <p>
+                    <label class="w3-text-brown"><b>Name:</b></label>
+                    <input class="w3-input w3-border w3-sand" name="last" type="text">
+                </p>
+                <p>
+                    <label class="w3-text-brown"><b>Mobile no:</b></label>
+                    <input class="w3-input w3-border w3-sand" name="last" type="mobile">
+                </p>
+
+                <p>
+                    <label class="w3-text-brown"><b>E-mail:</b></label>
+                    <input class="w3-input w3-border w3-sand" name="last" type="email">
+                </p>
+
+                <p>
+                    <label class="w3-text-brown"><b>Password:</b></label>
+                    <input class="w3-input w3-border w3-sand" name="last" type="password">
+                </p>
+                <p>
+                    <button class="w3-btn w3-green w3-large">save</button>
+                    <button class="w3-btn w3-teal w3-large">Reset</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

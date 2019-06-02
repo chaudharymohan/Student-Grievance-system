@@ -1,0 +1,83 @@
+
+<br>
+<div style="background-image: url('/public/image/back.jpg');background-repeat: no-repeat" ng-controller="cell_member_edit">
+<div class="w3-card-4" style="width:70%; margin:20px 145px 10px">
+    <div class="w3-container w3-teal">
+        <h2 class="w3-center">Edit Your profile</h2>
+    </div>
+    <form class="w3-container">
+        <fieldset style="background-color: #b3ffff;margin:2%">
+            <legend class="w3-text-deep-orange w3-xlarge"><button class="w3-block w3-orange">Your Profile is</button></legend>
+            <label class="w3-text-brown"><b>ID:</b></label>{{cell_member_id}}
+            <br>
+            <label class="w3-text-brown"><b>Name:</b></label>{{cell_member_name}}
+            <br>
+            <label class="w3-text-brown"><b>Post:</b></label>{{desig_name}}
+            <br>
+            <label class="w3-text-brown"><b>Department:</b></label>{{dept_name}}
+            <br>
+            <label class="w3-text-brown"><b>Mobile no:</b></label>{{cell_member_mob_no}}
+            <br>
+            <label class="w3-text-brown"><b>Email:</b></label>{{cell_member_email_id}}
+            <br>
+            <button onclick="document.getElementById('id01').style.display='block'"
+                    class="w3-button w3-wide w3-large w3-brown w3-hover-teal">Edit</button>
+            <br>
+        </fieldset>
+        <br><br>
+
+
+    </form>
+</div>
+<div id="id01" class="w3-modal" >
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+        <header class="w3-container w3-teal">
+        <span onclick="document.getElementById('id01').style.display='none'"
+              ng-click="cell_edit_reset()" class="w3-button w3-display-topright">&times;</span>
+            <h2 class="w3-center" style="color:#ff6600">Edit Your Profile </h2>
+        </header>
+        <div class="w3-container">
+
+
+
+
+            <form action="/update_cell_profile" method="post">
+            <p>
+                <label class="w3-text-brown"><b>ID:</b></label>
+                <input class="w3-input w3-border w3-sand" name="cell_member_id" ng-model="cell_member_id" type="number">
+            </p>
+            <p>
+                <label class="w3-text-brown"><b>Name:</b></label>
+                <input class="w3-input w3-border w3-sand" name="cell_member_name" ng-model="cell_member_name" type="text">
+            </p>
+            <p>
+                <label class="w3-text-brown"><b>Post:</b></label>
+                <input class="w3-input w3-border w3-sand" name="desig_name" ng-model="desig_name" type="text">
+            </p>
+            <p>
+                <label class="w3-text-brown"><b>Department:</b></label>
+                <input class="w3-input w3-border w3-sand" name="dept_name" ng-model="dept_name" type="text">
+            </p>
+            <p>
+                <label class="w3-text-brown"><b>Mobile no:</b></label>
+                <input class="w3-input w3-border w3-sand" name="cell_member_mob_no" ng-model="cell_member_mob_no" type="tel">
+            </p>
+
+            <p>
+                <label class="w3-text-brown"><b>E-mail:</b></label>
+                <input class="w3-input w3-border w3-sand" name="cell_member_email_id" ng-model="cell_member_email_id" type="email">
+            </p>
+
+            <p>
+                <label class="w3-text-brown"><b>Password:</b></label>
+                <input class="w3-input w3-border w3-sand" name="cell_member_pass" ng-model="cell_member_pass" type="password">
+            </p>
+            <p>
+                <input type="submit" class="w3-btn w3-green w3-large" value="Submit">
+                <button class="w3-btn w3-teal w3-large" ng-click="cell_edit_reset()">Reset</button>
+            </p>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

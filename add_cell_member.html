@@ -1,0 +1,42 @@
+<br>
+
+<div class="w3-card-4" style="width:70%; margin:20px 145px 10px">
+    <header class="w3-container w3-teal">
+        <h2 class="w3-center">Add Cell Member</h2>
+    </header>
+        <div class="w3-container">
+            <p>
+                <label class="w3-text-brown"><b>Cell Member Id:</b></label>
+                <input class="w3-input w3-border w3-sand" ng-model="cell_id" name="cell_id" type="number" ng-required="true">
+            </p>
+            <p>
+                <label class="w3-text-brown"><b>Name:</b></label>
+                <input class="w3-input w3-border w3-sand" name="nam" ng-model="nam" type="text">
+            </p>
+            <p>
+                <label class="w3-text-brown"><b>Designation:</b></label>
+                <select class="w3-select w3-border" name="option" ng-model="dept">
+                    <option value="" ng-repeat="">Choose designation</option>
+                </select>
+            </p>
+
+            <p>
+                <label class="w3-text-brown"><b>Contact:</b></label>
+                <input class="w3-input w3-border w3-sand" ng-model="contact" name="last" type="tel">
+            </p>
+
+            <p>
+                <label class="w3-text-brown"><b>E-mail:</b></label>
+                <input class="w3-input w3-border w3-sand" name="last" type="email">
+            </p>
+
+            <p>
+                <label class="w3-text-brown"><b>Password:</b></label>
+                <input class="w3-input w3-border w3-sand" name="last" type="password">
+            </p>
+            <p>
+                <button class="w3-btn w3-green w3-large">Submit</button>
+                <button class="w3-btn w3-teal w3-large">Reset</button>
+            </p>
+        </div>
+</div>

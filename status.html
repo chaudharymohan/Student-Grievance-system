@@ -1,0 +1,127 @@
+
+
+<div class="w3-container " ng-controller="status">
+    <div class="w3-card-4 w3-light-green ">
+        <h1 style="color:teal;margin-left: 50px;font-size:25px">Instruction</h1>
+        <hr>
+            <div class="w3-panel   w3-leftbar w3-border-amber">
+
+                <h4><span style="font-size:30px;color:blue;size:50px;">&#10147;</span>&nbsp &nbsp You can search Your grievance on below search box..</h4>
+
+
+                <h4><span style="font-size:30px;color:blue;size:50px;">&#10147;</span>&nbsp &nbspYou can see your response by clicking on Grievance ID No..</h4>
+
+
+                <h4><span style="font-size:30px;color:blue;size:50px;">&#10147;</span>&nbsp &nbsp click on confirm button for getting satisfactory response..</h4>
+
+            </div>
+
+    </div>
+</div>
+
+
+
+<div class="w3-container">
+    <div class="w3-container w3-teal w3-padding">
+        <input placeholder="search your grievance...."
+               ng-model="search1" class="w3-input  w3-border w3-sand"
+               style="width:50%" name="first" type="text">
+    </div>
+  <span class="w3-center w3-pale-green">
+
+    <table class="w3-table-all">
+        <thead>
+        <tr class="w3-teal">
+            <th>Grievance ID</th>
+            <th>Grievance TO</th>
+            <th>Grievance date</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="s in status_table_data|filter:search1">
+            <td><button ng-click="gri_detail(s.grievance_details_id)" onclick="document.getElementById('id01').style.display='block'"
+                  style="width:40%" class="w3-button w3-pink w3-hover-amber w3-wide">{{s.grievance_details_id}}</button>
+</td>
+            <td>{{s.cell_member_name}}</td>
+            <td>{{s.grievance_date | date:"mediumDate"}}</td>
+            <td>{{s.grievance_status}}</td>
+            </tr>
+    </table>
+</span>
+</div>
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+        <header class="w3-container w3-padding-16 w3-teal">
+        <span onclick="document.getElementById('id01').style.display='none'"
+              class="w3-button w3-display-topright">&times;</span>
+            <h2 class="w3-center">Grievance Detail </h2>
+        </header>
+        <div class="w3-container">
+            <fieldset>
+                <legend class="w3-text-red">Your Grievance</legend>
+                <div class="w3-row">
+                    <div class="w3-col s4">
+                        <span><h4>Grievance To:</h4>{{G_data_in_model[0][0].cell_member_name}}</span>
+                    </div>
+                    <div class="w3-col s4">
+                        <span><h4>Grievance Type:</h4>{{G_data_in_model[0][0].gtype}}</span>
+                    </div>
+                    <div class="w3-col s4">
+                        <span><h4>Grievance Related To:</h4>{{G_data_in_model[0][0].grievance_related_to}}</span>
+
+                    </div>
+                </div>
+
+
+                <fieldset>
+                    <legend class="w3-text-red">Grievance description</legend>
+                    <span><h4 class="w3-text-brown">{{G_data_in_model[0][0].grievance_desc}}</h4></span>
+                </fieldset>
+                <fieldset>
+                    <legend class="w3-text-red">Uploaded Document</legend>
+                    <label class="w3-text-brown"><b>Uploaded document is...</b></label>
+                </fieldset>
+            </fieldset>
+            <br>
+            <fieldset ng-show="isresonded" class="w3-border-black">
+                    <legend class="w3-text-red">Response to grievance</legend>
+                <fieldset ng-repeat="res in resp_data">
+                    <div class="w3-row">
+                        <div class="w3-col s6">
+                            <fieldset>
+                                <legend>Responding person</legend>
+                                {{res.cell_member_name}}
+                            </fieldset>
+                        </div>
+                        <div class="w3-col s6">
+                            <fieldset>
+                                <legend>Responded date</legend>
+                                {{res.resp_date}}
+
+                            </fieldset>
+                        </div>
+                    </div>
+                    <fieldset>
+                        <legend>Responded description</legend>
+                        {{res.resp_text}}
+
+                    </fieldset>
+                    <fieldset>
+                        <legend>Responded Document</legend>
+                        <button ng-click="view_docs(res.resp_evidence)"  class="w3-btn w3-text-amber w3-teal" ng-disabled="issubmit" value="upload">view</button>{{res.resp_evidence}}
+                    </fieldset>
+                </fieldset>
+            </fieldset>
+            <br>
+            <div class="w3-bar">
+                <button class="w3-button w3-green">Confirm</button>
+                <button class="w3-button w3-teal">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+
+
+

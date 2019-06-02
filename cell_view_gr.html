@@ -1,0 +1,120 @@
+
+<body ng-controller="cell_view_ctrl">
+<div class="w3-container ">
+    <div class="w3-card-4 w3-light-green ">
+        <h1 style="color:teal;margin-left: 50px;font-size:25px">Instruction</h1>
+        <hr>
+        <div class="w3-panel   w3-leftbar w3-border-amber">
+
+            <h4><span style="font-size:30px;color:blue;size:50px;">&#10147;</span>&nbsp &nbsp You can search student grievance on below search box..</h4>
+
+
+            <h4><span style="font-size:30px;color:blue;size:50px;">&#10147;</span>&nbsp &nbsp You can priorties the grievance According to date and time..</h4>
+
+
+            <h4><span style="font-size:30px;color:blue;size:50px;">&#10147;</span>&nbsp &nbsp You can give the reply by clicking on grievance id..</h4>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="w3-container">
+    <div class="w3-container w3-teal w3-padding">
+        <input placeholder="search your grievance...."
+               ng-model="search1" class="w3-input  w3-border w3-sand"
+               style="width:50%" name="first" type="text">
+    </div>
+
+
+    <table class="w3-table-all">
+        <thead>
+        <tr class="w3-teal">
+            <th>ID</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>grievance related to</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="s1 in cell_view_table_data|filter:search1">
+            <td><button ng-click="gri_detail_reply(s1.grievance_details_id)"
+                        onclick="document.getElementById('id01').style.display='block'"
+                        style="width:40%" class="w3-button w3-pink w3-hover-amber w3-wide">
+                {{s1.grievance_details_id}}</button>
+                </td>
+            <td>{{s1.gtype}}</td>
+            <td>{{s1.grievance_u_date}}</td>
+            <td>{{s1.grievance_related_to}}</td>
+        </tr>
+    </table>
+</div>
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+        <header class="w3-container  w3-teal" >
+        <span onclick="document.getElementById('id01').style.display='none'"
+               class="w3-button w3-display-topright">&times;</span>
+            <h2 class="w3-center" style="color:#ff6600">Grievance Detail </h2>
+        </header>
+        <div class="w3-container">
+            <fieldset>
+                <legend class="w3-text-red">Your Grievance</legend>
+                <div class="w3-row">
+                    <div class="w3-col s6">
+                        <span><h4>Grievance By:</h4>{{g_reply[0].std_name}}</span>
+                    </div>
+                    <div class="w3-col s6">
+                        <span><h4>Grievance Related To:</h4>{{g_reply[0].grievance_related_to}}</span>
+
+                    </div>
+                </div>
+
+
+                <fieldset>
+                    <legend class="w3-text-red">Grievance description</legend>
+                    <span><h4 class="w3-text-brown">{{g_reply[0].grievance_desc}}</h4></span>
+                </fieldset>
+                <fieldset>
+                    <legend class="w3-text-red">Uploaded Document</legend>
+                    <label class="w3-text-brown"><b>Uploaded document is...</b></label>
+                </fieldset>
+                <br>
+                <div class="w3-bar" >
+                    <button class="w3-button w3-green" ng-click="show_reply()">Reply</button>
+                </div>
+
+            </fieldset>
+            <br>
+
+            <fieldset class="w3-border-black" ng-show="IsVisible">
+                <legend class="w3-text-red">Reply to grievance</legend>
+                <fieldset>
+                    <textarea class="w3-border w3-sand" ng-model="cell_reply_description"
+                              name="G_description" cols="88"
+                              placeholder="Add your grievance here.." rows="4"
+                              ng-required=true></textarea>
+
+                    <fieldset>
+                        <legend>Attach document</legend>
+
+                        <p>
+                            <input type="file" onchange="angular.element(this).scope().setFile(this)" file-model="myFile"/>
+                            {{upload_details[0].status}}<br>
+                            {{FileMessage}}<br>
+                            <button ng-click="uploadFile()" ng-disabled="notpdf" value="upload">Upload</button>
+                            <button ng-click="view_docs()" ng-disabled="issubmit" value="upload">view</button>
+                        </p>
+
+                    </fieldset>
+                    <br>
+                    <div class="w3-bar">
+                        <a href="#!reply"><button ng-click="reply_to_grievance()" class="w3-button w3-green">submit</button>
+                        </a>
+                    </div>
+                </fieldset>
+
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+</body>

@@ -1,0 +1,65 @@
+<br>
+<body ng-controller="compose">
+<div class="w3-card-4">
+    <div class="w3-container w3-teal">
+        <h2 class="w3-container">Add Your Grievance</h2>
+    </div>
+<form enctype="multipart/form-data">
+        <fieldset>
+            <legend class="w3-text-teal">Grievance To</legend>
+            <label class="w3-text-brown"><b>Department:</b></label>
+            <select class="w3-select w3-border" name="cell_department" ng-model="cell_department"
+                    ng-change="cell_dept_fun()" ng-options="x.dept_name for x in c_data[0]" ng-required=true>
+            </select>
+
+            <label class="w3-text-brown"><b>Authority:</b></label>
+            <select class="w3-select w3-border" name="cell_authority" ng-model="cell_authority"
+                    ng-click="cell_auth_fun()" ng-options="x.desig_name for x in cell_auth_data" ng-required=true>
+            </select>
+
+            <label class="w3-text-brown"><b>Name:</b></label>
+            <select class="w3-select w3-border" ng-options="item.cell_member_name for item in cell_name_data" name="cell_name" ng-model="cell_name" ng-required=true>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend class="w3-text-teal">Grievance Type</legend>
+            <label class="w3-text-brown"><b>Department</b></label>
+            <select class="w3-select w3-border" name="G_department" ng-model="G_department"
+                    ng-change="G_dept_fun()" ng-options="x.dept_name for x in c_data[1]" ng-required=true>
+                </select>
+
+            <label class="w3-text-brown"><b>Select Grievance</b></label>
+            <select class="w3-select w3-border" name="G_type"
+                    ng-model="G_type" ng-options="y.gtype for y in G_type_data" ng-required=true>
+            </select>
+        </fieldset>
+
+        <fieldset>
+        <legend class="w3-text-teal">Grievance Related To</legend>
+            <label class="w3-text-brown"><b>Name:</b></label>
+            <input type="text" class="w3-select w3-border" name="G_Rto_name" ng-model="G_Rto_name" ng-required=true>
+        </fieldset>
+
+       <fieldset>
+
+           <legend class="w3-text-teal">Grievance description</legend>
+           <textarea class="w3-border w3-sand" ng-model="G_description" name="G_description"
+                     cols="104" placeholder="Add your grievance here.." rows="4" ng-required=true>
+           </textarea>
+       </fieldset>
+    <fieldset>
+         <legend class="w3-text-teal">Upload Document</legend>
+        <input type="file" onchange="angular.element(this).scope().setFile(this)" file-model="myFile"/>
+        {{upload_details[0].status}}<br>
+        {{FileMessage}}<br>
+        <button ng-click="uploadFile()" class="w3-btn w3-text-amber w3-green" ng-disabled="notpdf" value="upload">Upload</button>
+        <button ng-click="view_docs()"  class="w3-btn w3-text-amber w3-teal" ng-disabled="issubmit" value="upload">view</button>
+
+
+    </fieldset>
+    <a href="#!status" ng-click="get_table()">
+        <input type="submit" ng-click="submitData()" class="w3-btn w3-green" ng-disabled="forminvalid.$invalid" value="Submit"></a>
+</form>
+</div>
+</body>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <title>cell member interface</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/mainpage.css">
+    <link rel="stylesheet" href="../css/w3.css">
+    <link rel="stylesheet" href="../css/status.css">
+    <script src="script/angular.js"></script>
+    <script src="script/angular-route.js"></script>
+    <script>
+        var app=angular.module('app',['ngRoute']);
+        app.config(function($routeProvider)
+        {
+            $routeProvider
+                .when('/',
+                    {
+                        templateUrl:"views/cell_home.html"
+                    })
+                .when('/view',
+                    {
+                        templateUrl:"views/cell_view_gr.html",
+                        controller:'cell_view_ctrl'
+                    })
+
+                .when('/edit',
+                    {
+                        templateUrl:"views/cell_edit_profile.html",
+                        controller:'cell_member_edit'
+                    })
+                .when('/reply',
+                    {
+                        templateUrl:"views/cell_reply_gr.html",
+                        controller:"cell_replied_gr"
+                    })
+                .when('/about',
+                    {
+                        templateUrl:"views/about.html"
+                    })
+                .when('/contact',
+                    {
+                        templateUrl:"views/contact.html"
+                    })
+                .when('/cell',
+                    {
+                        templateUrl:"views/cell_member.html"
+                    })
+
+                .otherwise(
+                    {
+                        redirect:"/"
+                    }
+                )
+        });
+
+    </script>
+
+    <script src="controller/cell_member.js"></script>
+    <script src="controller/compose_ctrl.js"></script>
+    <script src="controller/cell_view_ctrl.js"></script>
+    <script src="controller/celll_member_profile.js"></script>
+    <script src="controller/cell_replied_gr.js"></script>
+    <style>
+
+        .sidebar p:hover
+        {
+            background-color:red;
+            text-decoration-color: black;
+        }
+        .nav a{
+            color:#ff6600;
+            font-size: 22px;
+            padding: 10px;
+            font-family: Balaram;
+        }
+    </style>
+
+
+
+</head>
+<body ng-controller="cell_member_ctrl">
+
+<div class="w3-bar w3-border w3-teal w3-top nav">
+    <img src="../image/logo3.jpg" class="w3-bar-item w3-button w3-circle w3-padding"
+         height="65" width="60"/>
+    <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-padding">Home</a>
+    <a href="#!about" class="w3-bar-item w3-button w3-hover-blue w3-padding">AboutUs</a>
+    <a href="#!contact" class="w3-bar-item w3-button w3-hover-blue w3-padding">ContactUs</a>
+
+    <a href="#!cell" class="w3-bar-item w3-button-red w3-hover-blue w3-padding">Cell member</a>
+    <a href="#!" ng-click="logout()" class="w3-bar-item w3-button-blue w3-right w3-padding">
+        <img src="../image/ganesh.jpg" style="border-radius:50%;float:right;width:50px;height:50px"/>
+    </a>
+</div>
+<br><br><br>
+<div class="w3-bar w3-border">
+
+    <img src="../image/Batu_logo.jpg" class="w3-bar-item w3-left"  style="margin-left:30px;"
+         height="70" width="70"/>
+    <h1 class="w3-center  w3-bar-item w3-text-yellow w3-xxlarge font"
+        style="text-align:center;font-weight:bold;color:#cc6600;">
+        Dr. Babasaheb Ambedkar Technological University, Lonere.
+    </h1>
+
+</div>
+
+<div class=" container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav" style="height:100%;">
+            <div class="sidebar">
+
+                <a  class="w3-text-hover-red" href=#!view ng-click="">Pending Grievance</a></p>
+                <br>
+                    <a href="#!reply">Replied Grievance</a>
+                <br>
+                    <a href="#!edit">Edit Profile</a>
+                <br>
+                <a href="#!rule">Rules & regulation</a>
+                <br>
+            </div>
+        </div>
+
+        <div class="col-sm-10 text-left">
+            <ng-view>
+            </ng-view>
+        </div>
+    </div>
+</div>
+
+<footer class="w3-teal">
+    <p class="w3-bar-item w3-button w3-hover-pale-red ">
+        Give Your Feedback
+    </p>
+    <p class="w3-bar-item w3-button w3-center w3-hover-pale-red ">
+        <u>Connect with Us</u>
+    </p>
+</footer>
+
+</body>
+</html>

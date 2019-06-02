@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add_grievance</title>
+    <link rel="stylesheet" href="/css/w3.css">
+    <link rel="stylesheet" href="/css/mainpage.css">
+
+    <link rel="stylesheet" href="../public/css/w3.css">
+</head>
+<body>
+<form style="width:60%;height:500px;background-color:skyblue;color:red;" class="f1"
+      action="/add_grievance" method="POST">
+    <h1>{{name}}</h1>
+    <div class="w3-container w3-paddind w3-teal">Compose-Grievance</div>
+    <div class="w3-container"></div>
+    <div class="w3-row">
+        <div class="w3-col s4">
+            Grievance To: <select name="st">
+            <option>Student section</option>
+            <option>Examination section</option>
+        </select></br>
+            Grievance Related To:<select name="stt">
+            <option>Student section</option>
+            <option>Examination section</option>
+        </select>
+        </div>
+        <div class="w3-col s4">
+            Description:<input type="textarea" name='des' cols="50" rows="10">
+            <br>
+            Date:<input type="date" name="dat"><br>
+            Upload Document:<input type="file" name="doc">
+        </div>
+        <div class="w3-row">
+            <div class="w3-col s8">
+                    <span>
+                        <button type="submit">submit</button>
+                        <button type="submit">clear</button>
+
+                    </span>
+            </div>
+        </div>
+    </div>
+    </fieldset>
+</form>
+</body>
+</html>

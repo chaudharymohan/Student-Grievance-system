@@ -1,0 +1,101 @@
+<div id="Register" class="tabcontent">
+                                <form action="/registration" method="post" id="register-form">
+
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-12 form-group">
+                                                <label>Full Name</label>
+                                                <input type="text" ng-model="fName" name="fname" tabindex="1"  placeholder="Enter Full Name Here.." class="form-control" required>
+                                            </div>
+
+                                        </div>	
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <label>Date Of Birth</label>
+                                                <input type="date" ng-model="dob" name="DOB" id="Dob" tabindex="6" class="form-control" placeholder="DOB" value="" required>
+                                            </div>
+
+                                            <div class="col-sm-6 form-group">
+                                                <label>Mobile No</label>
+                                                <input type="text" ng-model="mob_no" name="Mobile_No" id="Mobile_No" tabindex="7" class="form-control" placeholder="Mobile No" value="" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <label>Branch</label>
+                                                <select id="Branch" ng-model="branch" name="Branch"  tabindex="8" class="form-control" required>
+                                                    <option value="">--select branch--</option>
+                                                    <option value="6">Information Technology</option>
+                                                    <option value="3">Computer Engineering</option>
+                                                    <option value="1">Chemical Engineering</option>
+                                                    <option value="8">Petrochemical Engineering</option>
+                                                    <option value="4">Electrical Engineering</option>
+                                                    <option value="5">Electronics and Telecommunication Engineering</option>
+                                                    <option value="7">Mechanical Engineering</option>
+                                                    <option value="2">Civil Engineering</option>
+                                                </select>
+
+
+
+<!--                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">-->
+                                            </div>
+                                            <div class="col-sm-6 form-group">
+                                                <label>Year</label>
+                                                <select id="year" ng-model="year" name="year"  tabindex="9" class="form-control" required>
+                                                    <option value="">--select year--</option>
+                                                    <option value=First>First</option>
+                                                    <option value=Second>Second</option>
+                                                    <option value=Third>Third</option>
+                                                    <option value=Fourth>Fourth</option>
+
+                                                </select>
+                        <!--                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">-->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <label>Email</label>
+                                                <input type="email" id="mail" ng-model="mail" name="mail" tabindex="10"  placeholder="Enter email Here.." class="form-control" required>
+                                                <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                                                <span ng-show="myForm.email.$error.required">Email is required.</span>
+                                                <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6 form-group">
+                                                <label>user Id</label>
+                                                <input type="number" ng-model="userId" name="userId"  tabindex="11" placeholder="Enter userId Here.." class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <label>password</label>
+                                                <input type="password" ng-model="password" name="password" id="password" tabindex="12" class="form-control" placeholder="Password" required>
+                                            </div>
+
+                                            <div class="col-sm-6 form-group">
+                                                <label>Confirm password</label>
+                                                <input type="password" ng-change="checker()" ng-model="confirm_password" name="confirm_password" id="confirm-password" tabindex="12" class="form-control" placeholder="Confirm Password" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" ng-disabled="block" ng-click="register_submit()" name="register-submit" id="register-submit" tabindex="13" class="form-control btn btn-register" value="Register Now">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                         
